@@ -53,7 +53,7 @@ That’s it.
 
 This starter kit is **Module 01 material** from the course:
 
-**Pragmatic .NET Code Rules**
+**[Pragmatic .NET Code Rules](https://thecodeman.net/pragmatic-dotnet-code-rules)**
 
 The full course covers:
 - advanced EditorConfig usage
