@@ -1,0 +1,8 @@
+#!/bin/sh
+dotnet format --verify-no-changes
+
+if [ $? -ne 0 ]; then
+  echo "Formatting violations detected."
+  echo "Run 'dotnet format' before committing."
+  exit 1
+fi
