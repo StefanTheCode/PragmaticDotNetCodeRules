@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,13 +16,16 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 9.0.x
+          global-json-file: global.json
 
       - name: Restore
         run: dotnet restore
 
+      - name: Check formatting
+        run: dotnet format PragmaticDotNetCodeRules.sln --verify-no-changes --no-restore
+
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore --configuration Release
 
       - name: Test
-        run: dotnet test --no-build
+        run: dotnet test --no-build --configuration Release

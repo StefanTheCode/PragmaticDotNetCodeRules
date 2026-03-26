@@ -7,11 +7,28 @@
 
     <!-- Analyzers -->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 
     <!-- Build behavior -->
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!--
+      Warnings as errors: pragmatic subset.
+      These catch real bugs without being noisy.
+
+      CS8600-CS8625 : Nullable reference type warnings (prevent null bugs)
+      CA2016        : Forward CancellationToken to methods
+      CA2208        : Instantiate argument exceptions correctly
+    -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors>CS8600;CS8601;CS8602;CS8603;CS8604;CS8618;CS8625;CA2016;CA2208</WarningsAsErrors>
+
+    <!--
+      Suppress noisy warnings that rarely add value.
+      CS1591: Missing XML comment for publicly visible type
+    -->
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
 </Project>

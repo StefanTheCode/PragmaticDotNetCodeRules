@@ -1,5 +1,5 @@
 #!/bin/sh
-dotnet format --verify-no-changes
+dotnet format PragmaticDotNetCodeRules.sln --verify-no-changes
 
 if [ $? -ne 0 ]; then
   echo "Formatting violations detected."
