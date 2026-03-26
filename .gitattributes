@@ -1,0 +1,12 @@
+# Normalize line endings across all platforms
+# Ensures CRLF on checkout to match .editorconfig (end_of_line = crlf)
+* text=auto eol=crlf
+
+# Keep shell scripts with LF (required for Linux/macOS execution)
+*.sh text eol=lf
+pre-commit text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.ico binary
